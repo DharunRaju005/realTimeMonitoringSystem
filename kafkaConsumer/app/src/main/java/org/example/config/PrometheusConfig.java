@@ -14,7 +14,7 @@ public class PrometheusConfig {
     @PostConstruct
     public void init() throws IOException {
         DefaultExports.initialize();
-        HTTPServer server=new HTTPServer("0.0.0.0",8082); //this shd match  the port prometheus will scraping
+        HTTPServer server=new HTTPServer(8082); //this shd match  the port prometheus will scraping
 
     }
 }

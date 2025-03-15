@@ -15,7 +15,12 @@ import java.util.Properties;
 public class ProducerController {
     private final String TOPIC_NAME_NORMAL="normal";
     private final String TOPIC_NAME_URGENT="urgent";
-    private final String BOOTSTRAP_SERVERS="192.168.19.215:9092";
+
+    //mobile
+    //private final String BOOTSTRAP_SERVERS="192.168.19.215:9092";
+    //psg
+    private final String BOOTSTRAP_SERVERS="10.1.222.78:9092";
+
     //kafkaBroker
     private final Producer<String, String> kafkaProducer;
 

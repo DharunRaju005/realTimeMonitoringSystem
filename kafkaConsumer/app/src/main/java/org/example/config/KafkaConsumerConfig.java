@@ -27,14 +27,17 @@ public class KafkaConsumerConfig {
 
     //Creates a Kafka ConsumerFactory, which is responsible for creating Kafka consumers.
     //Configurations:
-        //BOOTSTRAP_SERVERS_CONFIG → Kafka broker URL (localhost:9092).
+        //BOOTSTRAP_SERVERS_CONFIG → Kafka broker URL (10.1.222.78:9092).
         //KEY_DESERIALIZER_CLASS_CONFIG → Deserializes message keys (converts bytes to String).
         //VALUE_DESERIALIZER_CLASS_CONFIG → Deserializes message values (converts bytes to String).
         //GROUP_ID_CONFIG → Consumers with the same group ID will consume messages together.
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.19.215:9092");
+//        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.19.215:9092");
+//        psg
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.1.222.78:9092");
+//        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "mygroup");
