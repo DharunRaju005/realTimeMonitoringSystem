@@ -39,7 +39,7 @@ bin/kafka-server-start.sh config/server.properties
 ### 2. Configuring Spring Boot Application
 Set up Kafka Consumer in **application.properties**:
 ```properties
-spring.kafka.bootstrap-servers=10.1.222.78:9092
+spring.kafka.bootstrap-servers=<VM-IP>:9092
 spring.kafka.consumer.group-id=mygroup
 management.endpoints.web.exposure.include=*
 management.prometheus.metrics.export.enabled=true
@@ -52,10 +52,10 @@ Modify `/etc/prometheus/prometheus.yml` to scrape Spring Boot metrics:
 scrape_configs:
   - job_name: 'spring-boot-app'
     static_configs:
-      - targets: ['10.1.216.96:8082']
+      - targets: ['<VM-IP>:8082']
   - job_name: 'kafka'
     static_configs:
-      - targets: ['10.1.216.96:8082']
+      - targets: ['<VM-IP>:8082']
 ```
 Restart Prometheus:
 ```bash
@@ -71,7 +71,7 @@ Access Grafana inside the VM and configure Prometheus as a data source:
 ## Viewing Metrics in Prometheus
 Visit:
 ```bash
-http://10.1.216.96:8082/metrics
+http://<VM-IP>:8082/metrics
 ```
 Example output:
 ```
